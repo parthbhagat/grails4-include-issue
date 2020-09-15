@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+    <!--CONNECT ADDITIONS START-->
+
+    <display-name>/mytest</display-name>
+    
+    <!--J2EE AUTHORIZATION START-->
+
+    <!--<security-role>
+        <description>Connect User Role</description>
+        <role-name>ROLE_ADMINUSER</role-name>
+    </security-role>-->
+
+    <!-- Everything under /connect/* requires authentication.
+         Exceptions may be described in additional security contraints.
+         According to the Servlet spec, longer url-patterns override shorter ones.
+    -->
+    <!--<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Connect UI</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>POST</http-method>
+            <http-method>GET</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ROLE_ADMINUSER</role-name>
+        </auth-constraint>
+		
+	<! - - this element forces HTTPS: comment out to allow HTTP: - - >
+	<! - -
+	<user-data-constraint>
+	    <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+	</user-data-constraint>
+	- - >
+    </security-constraint>-->
+
+    <!--<security-constraint>
+        <web-resource-collection>
+            <web-resource-name>login resources</web-resource-name>
+            <url-pattern>/login/*</url-pattern>
+            <url-pattern>/assets/login/*</url-pattern>
+            <! - - <url-pattern>/static/plugins/connect-commons-0.1/images/login/*</url-pattern> - - >
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+    </security-constraint>-->
+
+    <!--<login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/login/login</form-login-page>
+            <form-error-page>/login/login_error</form-error-page>
+        </form-login-config>
+    </login-config>-->
+
+    <welcome-file-list>
+        <welcome-file>/home/index</welcome-file>
+    </welcome-file-list>
+
+    <!--J2EE AUTHORIZATION END -->
+
+    <resource-ref>
+      <res-ref-name>jdbc/BRICK_STREET_SOFTWARE_CONNECT_DS</res-ref-name>
+      <res-type>javax.sql.DataSource</res-type>
+      <res-auth>Container</res-auth>
+      <res-sharing-scope>Shareable</res-sharing-scope>
+    </resource-ref>
+    
+</web-app>
